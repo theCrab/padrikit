@@ -19,6 +19,6 @@ class MapScreen < PM::MapScreen
   end
 
   def on_appear
-    super
+    # super
   end
 end
