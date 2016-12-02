@@ -14,21 +14,8 @@ class MapLayout < MK::Layout
       @infoo = add UILabel, :info_label
     end
     # end
-
-    buttons = button_items.each do |item|
-      UIButton.buttonWithType(UIButtonTypeCustom).tap do
-        frame(CGRectMake(0.0, 0.0, 40.0, 51.0))
-        title(item[:title])
-        image(UIImage.imageNamed(item[:gray_image]), forState: UIControlStateNormal) # use gray image
-        # image(UIImage.imageNamed(item[:color_image]), forState: UIControlStateHighlighted) # use colored image
-        # Move this code to a method
-        titleLabel.font = UIFont.systemFontOfSize(9)
-        imageEdgeInsets(UIEdgeInsetsMake(-10.0, 10.0, 5.0, 0.0))
-        titleEdgeInsets(UIEdgeInsetsMake(15.0, -15.0, 0.0, 0.0))
-        contentVerticalAlignment(UIControlContentVerticalAlignmentCenter)
-        # backgroundColor(UIColor.blueColor)
-      end
-    end
+    
+    buttons = %w(Home Work Recent)
 
     @segmented = UISegmentedControl.alloc.initWithItems(buttons)
     @request_btn = UIButton.new
@@ -106,9 +93,6 @@ class MapLayout < MK::Layout
       corner_radius 20
     end
 
-    items [
-
-    ]
     constraints do
       top(10)
       left(10)
