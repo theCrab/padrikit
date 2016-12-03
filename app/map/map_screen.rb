@@ -10,12 +10,11 @@ class MapScreen < PM::MapScreen
     # @layout = MapLayout.new(root: self.view).build
   end
 
-  def layout
-    @layout = MapLayout.new
-  end
-
   def will_appear
-    add(layout.view)
+    @layout = MapLayout.new(root: mapview).build
+    @layout.top_view do
+      # something
+    end
   end
 
   def on_appear
